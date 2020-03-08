@@ -1,13 +1,10 @@
 #!/usr/bin/env php
 <?php
 
-$birthDate = "1989-10-02";
-$todayDate = date("Y-m-d");
+include "src/Dates/BirthDays.php";
 
-$birthTime = strtotime($birthDate);
-$todayTime = strtotime($todayDate);
+$birthDate = '1989-10-02';
+$days = new \Glyanko\Dates\BirthDays($birthDate);
 
-$totalSecs = $todayTime - $birthTime;
-$totalDays = floor($totalSecs / (3600 * 24));
-
-echo "$birthDate : $totalDays\n";
+$totalDays = $days->findTotalDays();
+echo "$birthDate: $totalDays\n";
